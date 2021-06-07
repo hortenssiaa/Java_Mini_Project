@@ -3,6 +3,6 @@ package shop.dao;
 public class ProductDAO {
 	
 	public ProductDAO() {
-		System.out.println("제발!");
+		System.out.println("제발!111");
 	}
 }
