@@ -210,9 +210,9 @@ public class MypageUI { // with MemberDAO, MemberMgr, MemberVO
 		productList = memberMGR.showPopularProduct(member_id);
 
 		if (productList.isEmpty()) {
-			System.out.println("\n--------よく訪れる商品リストがありません。--------");
+			System.out.println("\n--------お気に入りの商品リストがありません。--------");
 		} else {
-			System.out.println("\n----------------よく訪れる商品 TOP 5-----------------");
+			System.out.println("\n----------------お気に入りの商品 TOP 5-----------------");
 
 			HashMap<String, Object> productMap = new HashMap<String, Object>();
 			
