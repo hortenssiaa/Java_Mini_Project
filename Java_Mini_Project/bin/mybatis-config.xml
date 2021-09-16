@@ -14,6 +14,7 @@
 		<typeAlias type="shop.vo.MemberVO" alias="member" />
 		<typeAlias type="shop.vo.OrderVO" alias="order" />
 		<typeAlias type="shop.vo.ProductVO" alias="product" />
+		<typeAlias type="shop.vo.Login" alias="login" />
 	</typeAliases>
 	
 	<!-- DB접속 정보 셋팅 -->

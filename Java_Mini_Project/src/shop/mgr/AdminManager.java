@@ -1,4 +1,4 @@
-package shop.manager;
+package shop.mgr;
 
 
 public class AdminManager {

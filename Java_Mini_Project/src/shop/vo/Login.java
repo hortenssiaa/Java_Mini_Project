@@ -1,8 +1,6 @@
 package shop.vo;
 
-public class MemberVO {
-
-
+public class Login {
 	private String member_id;
 	private String password;
 	private String name;
@@ -53,4 +51,13 @@ public class MemberVO {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	@Override
+	public String toString() {
+		return "Login [member_id=" + member_id + ", password=" + password + ", name=" + name + ", address=" + address
+				+ ", date=" + date + ", gender=" + gender + ", age=" + age + "]";
+	}
+	
+	
+	
+	
 }

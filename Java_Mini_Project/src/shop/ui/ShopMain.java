@@ -4,9 +4,7 @@ public class ShopMain {
 
 	public static void main(String[] args) {
 
-		ShopUI ui = new ShopUI();
-		
-		System.out.println("hakyung Á¦¹ß!!!");
+		LoginUI ui = new LoginUI();
 	}
 
 }
