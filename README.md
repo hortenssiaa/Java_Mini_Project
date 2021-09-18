@@ -16,7 +16,7 @@
 🧑🏻‍💻 Park Chan Ul @zamong25<br>
 👩🏻‍💻 Sohn Ha Kyung @hortenssiaa<br><br>
 
-### 🛠 개발환경
+### 개발환경
 - Java version 1.8
 - Mybatis 3.6.4?
 - JDBC version??
