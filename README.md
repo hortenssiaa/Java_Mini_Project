@@ -50,3 +50,15 @@
 <img alt="sobani_flowchart" src="https://user-images.githubusercontent.com/16066576/133893186-b309fbf1-8d2e-4935-93dd-f00e5920762b.png" width="650"/><br><br>
 
 ### 🕹 実行結果
+- ログイン
+<img width="650" alt="sobani1" src="https://user-images.githubusercontent.com/16066576/133894946-e2989cec-3abf-4183-abb3-c7ba20755c53.png">
+
+- 商品のリストを見る、ページング処理
+<img width="650" alt="sobani2" src="https://user-images.githubusercontent.com/16066576/133894954-52dee255-bda5-43c9-b053-1a6816d5c356.png">
+<img width="650" alt="sobani3" src="https://user-images.githubusercontent.com/16066576/133895005-7a418a18-4caa-464d-bb2a-7755e6115224.png">
+
+- 性別のトレンド
+<img width="650" alt="sobani4" src="https://user-images.githubusercontent.com/16066576/133895056-8863a6eb-3cb9-49ea-a537-27c17c218609.png">
+
+- 年齢別のトレンド
+<img width="650" alt="sobani5" src="https://user-images.githubusercontent.com/16066576/133895061-a6a5c077-977c-45b0-812d-c21019d8035c.png">
