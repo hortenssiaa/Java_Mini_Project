@@ -18,9 +18,8 @@
 
 ### 開発環境
 - Java version 1.8
-- Mybatis 3.6.4?
-- JDBC version??
-- Oracle DB
+- Mybatis 3.4.6
+- Oracle DB oracle 11g
 - Eclipse
 - Git, Github<br><br>
 
@@ -51,4 +50,3 @@
 <img alt="sobani_flowchart" src="https://user-images.githubusercontent.com/16066576/133893186-b309fbf1-8d2e-4935-93dd-f00e5920762b.png" width="650"/><br><br>
 
 ### 🕹 実行結果
-추가중<br><br>
