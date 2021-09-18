@@ -47,7 +47,7 @@
 ### DB 설계도
 ![nitome_erd](https://user-images.githubusercontent.com/16066576/133890990-622086e9-88ae-4fd5-a4a3-0e54e76bccef.png)<br><br>
 
-### 🔗 플로우차트
+### 플로우차트
 추가중<br><br>
 
 ### 🕹 실행결과
