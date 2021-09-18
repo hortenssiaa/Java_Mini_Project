@@ -6,7 +6,7 @@ import java.util.HashMap;
 import shop.dao.BoardDAO;
 import shop.vo.BoardVO;
 
-public class BoardManager {
+public class BoardManager { 
 	private BoardDAO dao = new BoardDAO();
 	
 	// ±Û ÀúÀå

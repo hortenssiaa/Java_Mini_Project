@@ -11,7 +11,7 @@ import shop.vo.OrderVO;
 import shop.vo.ProductVO;
 
 
-public interface ShopMapper {
+public interface ShopMapper { 
 
 	//일반사용자
 	public MemberVO searchId(MemberVO member); // 로그인

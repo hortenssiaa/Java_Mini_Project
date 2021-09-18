@@ -1,6 +1,6 @@
 package shop.vo;
 
-public class OrderVO {
+public class OrderVO { 
 	private int order_id;
 	private String member_id;
 	private int p_id;

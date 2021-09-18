@@ -4,7 +4,7 @@
 
 	<!-- DB접속정보 값을 가지고 있는 파일 설정 -->
 	<properties resource="db.properties" />
-
+ 
 	<!-- Java Class에 대한 alias 지정 -->
 	<typeAliases>
 		<typeAlias type="shop.vo.AdminVO" alias="admin" />

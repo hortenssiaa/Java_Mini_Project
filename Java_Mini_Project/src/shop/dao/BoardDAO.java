@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import shop.vo.BoardVO;
 
-public class BoardDAO {
+public class BoardDAO { 
 	private SqlSessionFactory factory = MybatisConfig.getSqlSessionFactory();
 	
 	// ±€¿˙¿Â

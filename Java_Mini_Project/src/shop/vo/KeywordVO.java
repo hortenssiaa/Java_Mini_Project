@@ -1,6 +1,6 @@
 package shop.vo;
 
-public class KeywordVO {
+public class KeywordVO { 
 	
 	private String keyword, member_id, searchdate;
 	private int keyword_id;

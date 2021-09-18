@@ -6,7 +6,7 @@ import java.util.HashMap;
 import shop.dao.OrderDAO;
 import shop.vo.OrderVO;
 
-public class OrderManager {
+public class OrderManager { 
 	OrderDAO dao = new OrderDAO();
 
 	public boolean orderData(OrderVO order) {

@@ -7,7 +7,7 @@ import shop.dao.ProductDAO;
 import shop.vo.KeywordVO;
 import shop.vo.ProductVO;
 
-public class ProductManager {
+public class ProductManager { 
 
 	ProductDAO dao = new ProductDAO();
 	//상품 목록

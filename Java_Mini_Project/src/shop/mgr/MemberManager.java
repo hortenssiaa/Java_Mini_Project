@@ -7,7 +7,7 @@ import java.util.HashMap;
 import shop.dao.MemberDAO;
 import shop.vo.MemberVO;
 
-public class MemberManager {
+public class MemberManager { 
 
 	private MemberDAO dao = new MemberDAO();
 

@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import shop.vo.OrderVO;
 
-public class OrderDAO {
+public class OrderDAO { 
 
 	private SqlSessionFactory factory = MybatisConfig.getSqlSessionFactory();
 	OrderVO vo = new OrderVO();

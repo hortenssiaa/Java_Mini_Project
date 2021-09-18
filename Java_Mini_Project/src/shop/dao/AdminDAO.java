@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import shop.vo.AdminVO;
 
-public class AdminDAO {
+public class AdminDAO { 
 	
 private SqlSessionFactory factory = MybatisConfig.getSqlSessionFactory(); // 마이바티스 객체
 	

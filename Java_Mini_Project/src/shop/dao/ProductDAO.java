@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import shop.vo.KeywordVO;
 import shop.vo.ProductVO;
 
-public class ProductDAO {
+public class ProductDAO { 
 	private SqlSessionFactory factory = MybatisConfig.getSqlSessionFactory();
 
 	public int insertProduct(ProductVO product) { //µî·Ï

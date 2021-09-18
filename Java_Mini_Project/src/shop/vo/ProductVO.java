@@ -1,6 +1,6 @@
 package shop.vo;
 
-public class ProductVO {
+public class ProductVO { 
 
 		private int p_id;
 		private String p_name;

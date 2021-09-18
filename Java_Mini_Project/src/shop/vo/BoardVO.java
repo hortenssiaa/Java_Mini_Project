@@ -1,6 +1,6 @@
 package shop.vo;
 
-public class BoardVO {
+public class BoardVO { 
 	private	int boardnum;
 	private	String member_id;
 	private int p_id;

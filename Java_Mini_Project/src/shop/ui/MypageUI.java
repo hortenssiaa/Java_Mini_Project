@@ -7,7 +7,7 @@ import java.util.Scanner;
 import shop.mgr.MemberManager;
 import shop.vo.MemberVO;
 
-public class MypageUI { // with MemberDAO, MemberMgr, MemberVO
+public class MypageUI { // with MemberDAO, MemberMgr, MemberVO 
 	
 	private static final int UPDATE_USER_INTO = 1;
 	private static final int POPULAR_PRODUCT = 2;

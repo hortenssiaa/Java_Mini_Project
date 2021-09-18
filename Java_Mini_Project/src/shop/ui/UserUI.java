@@ -10,7 +10,7 @@ import shop.mgr.OrderManager;
 import shop.vo.BoardVO;
 import shop.vo.MemberVO;
 
-public class UserUI {
+public class UserUI { 
 	private Scanner sc = new Scanner(System.in); 
 	private MemberManager mgrM = new MemberManager();
 	private OrderManager mgrO = new OrderManager();

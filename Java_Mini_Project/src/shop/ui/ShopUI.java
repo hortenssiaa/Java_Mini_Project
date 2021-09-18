@@ -6,7 +6,6 @@ import shop.mgr.MemberManager;
 import shop.vo.AdminVO;
 import shop.vo.MemberVO;
 
-
 public class ShopUI {
 	private MemberManager mgr = new MemberManager();
 	private AdminManager admgr = new AdminManager(); 

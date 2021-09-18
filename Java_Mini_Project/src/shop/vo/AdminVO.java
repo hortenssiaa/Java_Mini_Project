@@ -1,6 +1,6 @@
 package shop.vo;
 
-public class AdminVO {
+public class AdminVO { 
 	private String admin_id;
 	private String admin_pwd;
 	

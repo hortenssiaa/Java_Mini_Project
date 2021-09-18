@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import shop.vo.MemberVO;
 
-public class MemberDAO {
+public class MemberDAO { 
 	private SqlSessionFactory factory = MybatisConfig.getSqlSessionFactory(); // 마이바티스 객체
 
 	//글 저장
