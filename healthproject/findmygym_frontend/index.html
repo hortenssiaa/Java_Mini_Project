@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Own Gym</title>
+    <meta name="description" content="Website for finding your own gym in nature near your house">
+    <meta name="author" content="Hakyung(Hortenssiaa)">
+
+    <link rel="icon" type="image/svg" href="imgs/heartbeat-solid.svg">
+    <script src="https://kit.fontawesome.com/dc8b0adc20.js" crossorigin="anonymous"></script>
+
+    <!-- title, description, image when sharing URL -->
+    <meta property="og:title" content="Find Your Gym">
+    <meta property="og:description" content="Find your safe gym in nature in the pandemic!">
+    <!-- 설정해야함 !! -->
+    <meta property="og:image" content="">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="navbar__logo">
+            <i class="fas fa-heartbeat"></i>
+            <a href="#">마이짐</a>
+        </div>
+
+        <ul class="navbar__menu">
+            <li class="navbar__manu__item language"><i class="fas fa-globe"></i> Language</li>
+            <li class="navbar__manu__item">Gym 찾기</li>
+            <a href="./sns.html"><li class="navbar__manu__item">인생샷 올리기</li></a>
+            <a href="./signin.html"><li class="navbar__manu__item login">로그인</li></a>
+        </ul>
+    </nav>
+
+
+    <!-- Home -->
+    <section id="home">
+        <div class="home__container">
+            <h2>
+                코로나로 지친 요즘<br>
+            </h2>
+            <h2>
+                <strong>마이짐</strong>에서 안전한 자연속<br>
+            </h2>
+            <h2>
+                나만의 운동공간을 찾아보세요!<br>
+            </h2>
+            <h3>
+                더 많은 서비스를 체험해보세요
+            </h3>
+            <a href="./signup.html"><button class="home__signup">회원가입</button></a>    
+        </div>
+    </section>
+
+
+    <!-- Find place - map -->
+    <section id="findplace" class="section map">
+        <div class="section_container">
+            <div class="findplace__left">
+                <div class="findplace__left__description">
+                    <h1>
+                        공공운동기구 찾기
+                    </h1>
+                    <p>
+                        시, 도별로 공개된 정보입니다<br>
+                        탭에서 장소를 선택해주세요
+                    </p>
+                </div>
+                <!-- <div class="divideLine"></div> -->
+                <div class="findplace__left__toggle">
+                    <select name="citys" id="city__selection">
+                        <option value="">선택해주세요</option>
+                        <option value="seoul">서울</option>
+                        <option value="geonggi">경기도</option>
+                        <option value="gangwon">강원도</option>
+                        <option value="deajeon">대전</option>
+                        <option value="busan">부산</option>
+                    </select>
+                </div>
+                <div class="findplace__left__searchBtn">
+                    <button class="searchBtn">찾기</button>
+                </div>
+                <div class="divideLine divline2"></div>
+                <div class="findplace__left__moreDesc">
+                    <p>
+                        공원, 탄천, 산 등<br>더 많은 장소를 찾으러 가볼까요?
+                    </p>
+                </div>
+                <div class="findplace__left__moreBtn">
+                    <button class="moreBtn">더 많은 장소 찾으러가기></button>
+                </div>
+            </div>
+
+            <div class="findplace__right map" id="map">
+                <div class="map__container">
+                    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2498e2ede14eaeded0134865029cedad"></script>
+                    <script>
+                        var markerPosition = new kakao.maps.LatLng(37.511371991643244, 127.05962271980377)
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                            mapOption = { 
+                                center: markerPosition, // 지도의 중심좌표
+                                level: 3 // 지도의 확대 레벨
+                            };
+
+                        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                        var imageSrc = "https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/2021_05_free_parents/sparta-marker.png"; 
+                        var imageSize = new kakao.maps.Size(65, 86); 
+                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                        
+                        var marker = new kakao.maps.Marker({
+                            map: map,
+                            position: markerPosition,
+                            image : markerImage
+                        });
+
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SNS -->
+    <section id="sns" class="section sns">
+        <div class="sns__left">
+            <h1><span class="sns__p__style1">건강한 습관</span> in 마이짐</h1>
+            <p>
+                마이짐을 즐기면서<br>
+                건강한 습관을 공유해보세요!
+            </p>
+            <a href="./sns.html"><button class="sns__uploadBtn">습관 기록하러가기 ></button></a>
+        </div>
+        <div class="sns__container">
+            <div class="sns__board board1">
+                <div class="board__inner__box">
+                    <!-- 1 -->
+                    <img src="./imgs/profile_2.jpg" alt="profile" class="board__profile">
+                    <!-- 2 -->
+                    <div class="board__inner__content">
+                        <span class="board__font username">방탄소년단</span>
+                        <span class="board__font userid">@BTS_mygym</span>
+                        <span class="board__font dot">・</span>
+                        <span class="board__font date">Jun 18</span>
+                        <div class="board__font content">
+                            The #Hot100 top 10 (chart dated June 19, 2021) Rkive Yongsan Smiling face with halo The next generation of the web’s favorite icon library + toolkit is now available as a Beta release!  ) Rkive Yongsan Smiling face with halo The n Rkive Yongsan Smiling face with halo The n                    
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="board__icons__container">
+                        <div class="board__icon like">
+                            <i class="far fa-heart"></i>
+                            <span class="like__number">1.6M</span>
+                        </div>
+                        <div class="board__icon comment">
+                            <i class="far fa-comment"></i>
+                            <span class="comment__number">97.4K</span>
+                        </div>
+                        <div class="board__icon bookmark">
+                            <i class="far fa-bookmark"></i>
+                            <span class="bookmark__number">1.4K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sns__board board2">
+                <div class="board__inner__box">
+                    <!-- 1 -->
+                    <img src="./imgs/profile_2.jpg" alt="profile" class="board__profile">
+                    <!-- 2 -->
+                    <div class="board__inner__content">
+                        <span class="board__font username">방탄소년단</span>
+                        <span class="board__font userid">@BTS_mygym</span>
+                        <span class="board__font dot">・</span>
+                        <span class="board__font date">Jun 18</span>
+                        <div class="board__font content">
+                            The #Hot100 top 10 (chart dated June 19, 2021) Rkive Yongsan Smiling face with halo The next generation of the web’s favorite icon library + toolkit is now available as a Beta release!  ) Rkive Yongsan Smiling face with halo The n Rkive Yongsan Smiling face with halo The n                    
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="board__icons__container">
+                        <div class="board__icon like">
+                            <i class="far fa-heart"></i>
+                            <span class="like__number">1.6M</span>
+                        </div>
+                        <div class="board__icon comment">
+                            <i class="far fa-comment"></i>
+                            <span class="comment__number">97.4K</span>
+                        </div>
+                        <div class="board__icon bookmark">
+                            <i class="far fa-bookmark"></i>
+                            <span class="bookmark__number">1.4K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sns__board board3">
+                <div class="board__inner__box">
+                    <!-- 1 -->
+                    <img src="./imgs/profile_2.jpg" alt="profile" class="board__profile">
+                    <!-- 2 -->
+                    <div class="board__inner__content">
+                        <span class="board__font username">방탄소년단</span>
+                        <span class="board__font userid">@BTS_mygym</span>
+                        <span class="board__font dot">・</span>
+                        <span class="board__font date">Jun 18</span>
+                        <div class="board__font content">
+                            The #Hot100 top 10 (chart dated June 19, 2021) Rkive Yongsan Smiling face with halo The next generation of the web’s favorite icon library + toolkit is now available as a Beta release!  ) Rkive Yongsan Smiling face with halo The n Rkive Yongsan Smiling face with halo The n                    
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="board__icons__container">
+                        <div class="board__icon like">
+                            <i class="far fa-heart"></i>
+                            <span class="like__number">1.6M</span>
+                        </div>
+                        <div class="board__icon comment">
+                            <i class="far fa-comment"></i>
+                            <span class="comment__number">97.4K</span>
+                        </div>
+                        <div class="board__icon bookmark">
+                            <i class="far fa-bookmark"></i>
+                            <span class="bookmark__number">1.4K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sns__board board4">
+                <div class="board__inner__box">
+                    <!-- 1 -->
+                    <img src="./imgs/profile_2.jpg" alt="profile" class="board__profile">
+                    <!-- 2 -->
+                    <div class="board__inner__content">
+                        <span class="board__font username">방탄소년단</span>
+                        <span class="board__font userid">@BTS_mygym</span>
+                        <span class="board__font dot">・</span>
+                        <span class="board__font date">Jun 18</span>
+                        <div class="board__font content">
+                            The #Hot100 top 10 (chart dated June 19, 2021) Rkive Yongsan Smiling face with halo The next generation of the web’s favorite icon library + toolkit is now available as a Beta release!  ) Rkive Yongsan Smiling face with halo The n Rkive Yongsan Smiling face with halo The n                    
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="board__icons__container">
+                        <div class="board__icon like">
+                            <i class="far fa-heart"></i>
+                            <span class="like__number">1.6M</span>
+                        </div>
+                        <div class="board__icon comment">
+                            <i class="far fa-comment"></i>
+                            <span class="comment__number">97.4K</span>
+                        </div>
+                        <div class="board__icon bookmark">
+                            <i class="far fa-bookmark"></i>
+                            <span class="bookmark__number">1.4K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sns__board board5">
+                <div class="board__inner__box">
+                    <!-- 1 -->
+                    <img src="./imgs/profile_2.jpg" alt="profile" class="board__profile">
+                    <!-- 2 -->
+                    <div class="board__inner__content">
+                        <span class="board__font username">방탄소년단</span>
+                        <span class="board__font userid">@BTS_mygym</span>
+                        <span class="board__font dot">・</span>
+                        <span class="board__font date">Jun 18</span>
+                        <div class="board__font content">
+                            The #Hot100 top 10 (chart dated June 19, 2021) Rkive Yongsan Smiling face with halo The next generation of the web’s favorite icon library + toolkit is now available as a Beta release!  ) Rkive Yongsan Smiling face with halo The n Rkive Yongsan Smiling face with halo The n                    
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="board__icons__container">
+                        <div class="board__icon like">
+                            <i class="far fa-heart"></i>
+                            <span class="like__number">1.6M</span>
+                        </div>
+                        <div class="board__icon comment">
+                            <i class="far fa-comment"></i>
+                            <span class="comment__number">97.4K</span>
+                        </div>
+                        <div class="board__icon bookmark">
+                            <i class="far fa-bookmark"></i>
+                            <span class="bookmark__number">1.4K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information -->
+    <section id="contact" class="contact section">
+        <div class="contact__contents">
+            <div class="contact__email">
+                <span class="contact__content title">Contact Here! </span>
+                <span class="contact__content email">hortenssiaa@gmail.com</span>
+            </div>
+            <div class="contact__link">    
+                <span class="contact__content title">You Can See Codes Here! </span>
+                <span class="contact__content link">
+                    <a href="https://github.com/hortenssiaa" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+        <p class="contact__rights">
+            2021 Hortenssiaa Ha-Kyung Sohn - All rights reserved
+        </p>
+    </section>
+</body>
+</html>
