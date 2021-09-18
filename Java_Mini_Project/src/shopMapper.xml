@@ -3,8 +3,525 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="shop.dao.ShopMapper">
 
+<select id="searchId" parameterType="member" resultType="member">
+select
+	member_id
+	,password
+	,name
+	,address
+	,gender
+	,age
+from
+	member_tb
+where
+	member_id = #{member_id}
+and
+	password = #{password}
+</select>
 
+<insert id="register" parameterType="member">
+insert into
+	member_tb(
+		member_id
+		,password
+		,name
+		,address
+		,gender
+		,age
+	)values(
+		#{member_id}
+		,#{password}
+		,#{name}
+		,#{address}
+		,#{gender}
+		,#{age}
+	)
+</insert>
+
+<select id="searchAdmin" parameterType="admin" resultType="admin">
+select
+	admin_id
+	,admin_pwd
+from
+	admin_tb
+where
+	admin_id = #{admin_id}
+and
+	admin_pwd = #{admin_pwd}
+</select>
+
+<insert id="orderData" parameterType="order">
+insert into
+	orders_tb(
+		order_id
+		,member_id
+		,p_id
+		,order_quan
+	)values(
+		order_seq.nextval
+		,#{member_id}
+		,#{p_id}
+		,#{order_quan}
+	)	
+</insert>
+
+
+<insert id="insertProduct" parameterType="product">
+ insert into
+ 	product_tb(
+ 		p_id
+		,p_name
+		,cost
+		,price
+		,stock
+		,p_company
+		,p_detail
+ 	)values(
+ 		p_seq.nextval
+ 		,#{p_name}
+ 		,#{cost}
+ 		,#{price}
+ 		,#{stock}
+ 		,#{p_company}
+ 		,#{p_detail}
+ 	)
+ </insert>
+<update id="updateProduct" parameterType="product">
+update
+	product_tb
+set
+	p_name = #{p_name}
+	,cost = #{cost}
+	,price = #{price}
+	,stock = #{stock}
+	,p_company = #{p_company}
+	,p_detail = #{p_detail}
+where
+	p_id = #{p_id}
+</update>
+
+<!--  재고량 변화 -->
+<update id="orderProduct" parameterType="hashmap">
+update
+	product_tb
+set
+	stock = stock - #{order_quan}
+where
+	p_id = #{p_id}
+</update>
+
+<select id="selectProductAll" resultType="product">
+
+select
+    p_id
+    ,p_name
+    ,cost
+    ,price
+    ,stock
+    ,p_company
+    ,p_detail
+from
+    product_tb
+order by
+    p_id
+
+</select>
+
+<select id="selectMemberAll" resultType="member">
+
+select
+	member_id
+	,password
+	,name
+	,address
+	,to_char(indate, 'yyyy-mm-dd')as indate
+	,gender
+	,age
+from
+	member_tb
+order by
+	member_id desc
+
+</select>
+
+<update id="updateMember" parameterType="member">
+update
+	member_tb
+set
+	password = #{password}
+	,name = #{name}
+	,address = #{address}
+	,gender = #{gender}
+	,age = #{age}
+where
+	member_id = #{member_id}
+</update>
+
+<select id="selectProductTitle" parameterType="string" resultType="product">
+select
+    p_id    
+	,p_name
+	,cost
+	,price
+	,stock
+	,p_company
+	,p_detail
+from
+    product_tb
+<where>
+	<if test="type == 1">
+	upper(p_name) like '%'||upper(#{word})||'%'
+	</if>
+	<if test="type == 2">
+	upper(p_company) like '%'||upper(#{word})||'%'
+	</if>
+	<if test="type == 3">
+	upper(p_detail) like '%'||upper(#{word})||'%'
+	</if>
+</where>    
+order by
+	p_id desc
+</select>	
+
+<select id="selectOrderAll" resultType="order">
+select
+	order_id
+	,member_id
+	,p_id
+	,to_char(order_date, 'yyyy-mm-dd')as order_date
+	,order_quan
+from
+	orders_tb
+order by
+	p_id
+</select>
+
+<update id="updateOrder" parameterType="order">
+
+update
+	orders_tb
+set
+	p_id = #{p_id}
+	,order_quan = #{order_quan}
+where
+	order_id = #{order_id}
+	
+
+</update>
+
+<delete id="deleteMember" parameterType="String">
+delete from
+	member_tb
+where
+	member_id = #{member_id}
+
+</delete>
+
+<delete id="deleteProduct" parameterType="String">
+delete from
+	product_tb
+where
+	p_id = #{p_id}
+
+</delete>
+
+<delete id="deleteOrder" parameterType="int">
+delete from
+	orders_tb
+where
+	order_id = #{order_id}
+
+</delete>
+
+
+<!-- 마이페이지 - 회원정보수정 -->
+<update id="updateUserInfo" parameterType="member">
+update 
+	member_tb
+set
+	password = #{password}
+	,name = #{name}
+	,address = #{address}
+	,gender = #{gender}
+	,age = #{age}
+where
+	member_id = #{member_id}
+</update>
+
+
+<!-- 마이페이지 - 자주찾는상품 (최근5개) -->
+<select id="popularProduct" parameterType="string" resultType="hashmap">
+select
+     to_char(o.order_date, 'yyyy-MM-dd HH24:MI') as order_date
+     , o.order_quan as order_quan
+     , p.p_name as p_name
+     , p.p_company as p_company
+     , p.price as price
+from 
+    orders_tb o, product_tb p
+where
+    o.p_id = p.p_id
+and
+    member_id = #{member_id}
+order by
+    order_quan desc
+</select>
+
+<!-- 마이페이지 - 구매상품 (최근5개) -->
+<select id="orderdProduct" parameterType="string" resultType="hashmap">
+select
+    to_char(o.order_date, 'yyyy-MM-dd HH24:MI') as order_date
+    , o.order_quan as order_quan
+    , p.p_name as p_name
+    , p.p_company as p_company
+    , p.price as price
+    , p.p_id as p_id
+from   
+    orders_tb o, product_tb p
+where
+    o.p_id = p.p_id
+and 
+    o.member_id = #{testid}
+order by
+    o.order_date desc
+</select>
+
+<!-- 마이페이지 - 내가 작성한 후기 -->
+<select id="showAllMyReview" parameterType="string" resultType="hashmap">
+select
+    b.member_id as member_id
+    , p.p_company as p_company
+    , p.p_name as p_name
+    , b.title as title
+    , b.content as content
+    , to_char(b.credate, 'yyyy-MM-dd HH24:MI') as credate
+from
+    product_tb p, board_tb b
+where
+    p.p_id = b.p_id
+and
+    b.member_id = #{member_id}
+</select>
+
+<!-- 상품전체 5개씩 보여주기 - 이전 다음 test -->
+<select id="showAllProductTest" resultType="product">
+select
+    P_ID
+    , P_NAME
+    , COST
+    , PRICE
+    , P_COMPANY
+    , P_DETAIL
+from
+    product_tb
+</select>
+
+<!-- 트렌드  -->
+<select id="selectTrendMale" resultType="hashmap">
+select
+    o.p_id as p_id
+    ,p.p_name as p_name
+    ,o.order_quan as order_quan
+from
+    orders_tb o , product_tb p, member_tb m
+where
+    o.p_id = p.p_id
+    and o.member_id = m.member_id
+    and m.gender = 'm'
+order by
+    o.order_quan desc
+</select>
+
+<select id="selectTrendFemale" resultType="hashmap">
+select
+    o.p_id as p_id
+    ,p.p_name as p_name
+    ,o.order_quan as order_quan
+from
+    orders_tb o , product_tb p, member_tb m
+where
+    o.p_id = p.p_id
+    and o.member_id = m.member_id
+    and m.gender = 'f'
+order by
+    o.order_quan desc
+</select>
+
+<select id="selectTrendAge01" resultType="hashmap">
+select
+    o.p_id as p_id
+    ,p.p_name as p_name
+    ,o.order_quan as order_quan
+from
+    orders_tb o , product_tb p, member_tb m
+where
+    o.p_id = p.p_id
+    and o.member_id = m.member_id
+    and 29 >= m.age
+    and m.age >= 10
+order by
+    o.order_quan desc
+</select>
+
+<select id="selectTrendAge02" resultType="hashmap">
+select
+    o.p_id as p_id
+    ,p.p_name as p_name
+    ,o.order_quan as order_quan
+from
+    orders_tb o , product_tb p, member_tb m
+where
+    o.p_id = p.p_id
+    and o.member_id = m.member_id
+    and 49 >= m.age
+    and m.age >= 30
+order by
+    o.order_quan desc
+</select>
+
+<select id="selectTrendAge03" resultType="hashmap">
+select
+    o.p_id as p_id
+    ,p.p_name as p_name
+    ,o.order_quan as order_quan
+from
+    orders_tb o , product_tb p, member_tb m
+where
+    o.p_id = p.p_id
+    and o.member_id = m.member_id
+    and 69 >= m.age
+    and m.age >= 50
+order by
+    o.order_quan desc
+</select>
+
+<!-- 글쓰기 -->
+<insert id="insertBoard" parameterType = "board">
+Insert into
+	board_tb(
+		boardnum
+		,member_id
+		,p_id
+		,title
+		,content
+	)values(
+		board_tb_seq.nextval
+		,#{member_id}
+		,#{p_id}
+		,#{title}
+		,#{content}
+	)
+</insert>
+
+<!-- 글 목록 -->
+<select id="selectBoardAll" resultType = "board">
+select
+    boardnum
+    ,member_id
+	,p_id
+    ,title
+    ,content
+    ,hits
+    ,to_char(credate,'yyyy-MM-dd') as credate
+from
+    board_tb
+order by
+    boardnum desc
+</select>
+<!-- 글 1개 읽기-->
+<select id="selectBoardByNum" parameterType = "int" resultType = "board">
+select
+	boardnum
+	,member_id
+	,p_id
+	,title
+	,content
+	,hits
+	,to_char(credate,'yyyy-MM-dd') as credate
+from
+	board_tb
+where
+	boardnum = #{boardnum}
+</select>
+<!-- 글의 조회수 1증가 -->
+<update id="updateHits" parameterType = "int">
+update
+	board_tb
+set
+	hits = hits + 1
+where
+	boardnum = #{boardnum}
+</update>
+<!-- 글 삭제 전 검색 -->
+<select id="checkUserID" parameterType="board" >
+select
+	member_id
+from
+	board_tb
+where
+	member_id = #{member_id}
+and
+	boardnum = #{boardnum}
+</select>
+<!-- 글 삭제 -->
+<delete id="deleteBoard" parameterType ="board" >
+delete from
+	board_tb
+where
+	boardnum = #{boardnum}
+and
+	member_id = #{member_id}
+</delete>
+<!-- 글 검색 -->
+<select id="selectBoardByTitle" parameterType="hashmap" resultType="board">
+select
+    boardnum
+    ,member_id
+	,p_id
+    ,title
+    ,content
+    ,hits
+    ,to_char(credate,'yyyy-MM-dd')as credate
+from
+    board_tb
+<where>
+	<if test="type == 1">
+	upper(member_id) like '%'||upper(#{word})||'%'	
+	</if>
+	<if test="type == 2">
+	upper(title) like '%'||upper(#{word})||'%'	
+	</if>
+	<if test="type == 3">
+	upper(content) like '%'||upper(#{word})||'%'	
+	</if>
+</where>
+order by
+	boardnum desc
+</select>
+
+<!-- 최근검색어 (3)개 불러오기 -->
+<select id="selectAllSearchedWord" parameterType="string" resultType="keyword">
+select
+    KEYWORD
+    , to_char(SEARCHDATE, 'yyyy-MM-dd HH24:MI:ss') as SEARCHDATE
+from
+    keyword_tb
+where
+    member_id = #{member_id}
+order by
+    searchdate desc
+</select>
+
+<!-- 상품 검색하면서, 최근검색어 테이블에 데이터 넣기 -->
+<insert id="insertSearchedWord" parameterType="keyword">
+insert into
+    keyword_tb 
+        (KEYWORD_ID, keyword, member_id)
+    values
+        (KEYWORD_SEQ.nextval, #{keyword}, #{member_id})
+</insert>
 
 </mapper>

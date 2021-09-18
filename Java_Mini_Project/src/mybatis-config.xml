@@ -8,14 +8,12 @@
 	<!-- Java Class에 대한 alias 지정 -->
 	<typeAliases>
 		<typeAlias type="shop.vo.AdminVO" alias="admin" />
-		<typeAlias type="shop.vo.BoardVO" alias="board" />
-		<typeAlias type="shop.vo.CartVO" alias="cart" />
-		<typeAlias type="shop.vo.KeywordVO" alias="keyword" />
 		<typeAlias type="shop.vo.MemberVO" alias="member" />
-		<typeAlias type="shop.vo.OrderVO" alias="order" />
 		<typeAlias type="shop.vo.ProductVO" alias="product" />
+		<typeAlias type="shop.vo.OrderVO" alias="order" />
+		<typeAlias type="shop.vo.BoardVO" alias="board" />
+		<typeAlias type="shop.vo.KeywordVO" alias="keyword" />
 	</typeAliases>
-	
 	<!-- DB접속 정보 셋팅 -->
 	<environments default="development">
 		<environment id="development">
@@ -28,10 +26,10 @@
 			</dataSource>
 		</environment>
 	</environments>
+
 	
 	<!-- Mapper 파일 include -->
 	<mappers>
-		<mapper resource="shopMapper.xml" />
+		<mapper resource="shopMapper.xml"></mapper>
 	</mappers>
-	
 </configuration>
