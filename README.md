@@ -44,7 +44,7 @@
   : 注文情報照会、　注文情報修正、　注文情報削除<br><br>
 
 ### DB設計図
-![nitome_erd](https://user-images.githubusercontent.com/16066576/133890990-622086e9-88ae-4fd5-a4a3-0e54e76bccef.png)<br><br>
+![sobani_db](https://user-images.githubusercontent.com/16066576/133912517-80b49369-6ed6-464b-bda7-1835bc5feecb.png)<br><br>
 
 ### Flow Chart
 <img alt="sobani_flowchart" src="https://user-images.githubusercontent.com/16066576/133893186-b309fbf1-8d2e-4935-93dd-f00e5920762b.png" width="650"/><br><br>
