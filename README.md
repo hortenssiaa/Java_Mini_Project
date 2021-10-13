@@ -47,7 +47,7 @@
 ![sobani_db](https://user-images.githubusercontent.com/16066576/133912517-80b49369-6ed6-464b-bda7-1835bc5feecb.png)<br><br>
 
 ### Flow Chart
-<img alt="sobani_flowchart" src="https://user-images.githubusercontent.com/16066576/133893186-b309fbf1-8d2e-4935-93dd-f00e5920762b.png" width="650"/><br><br>
+<img width="650" alt="sobani_flowchart" src="https://user-images.githubusercontent.com/16066576/137128100-1009451c-2649-4054-abe7-110010311128.png"><br><br>
 
 ### 🕹 実行結果
 - ログイン
